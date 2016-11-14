@@ -8,6 +8,11 @@
 
 import UIKit
 
+/**
+ An exercise from a tutorial
+ Uses the images from the https://github.com/PokeAPI/pokeapi repo instead of downloading them
+ 
+ */
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
