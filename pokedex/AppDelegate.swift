@@ -8,6 +8,9 @@
 
 import UIKit
 
+///Static variables used all over the application
+let cellIndentifier = "PokeCell"
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
