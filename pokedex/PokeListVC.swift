@@ -13,15 +13,18 @@ import AVFoundation //needed for sound effects
  Uses the images from the https://github.com/PokeAPI/pokeapi repo instead of downloading them
  
  */
-class PokeListVC: UIViewController,UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class PokeListVC: UIViewController,UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
 
     
     ///Outlets definitions
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var search: UISearchBar!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     
-    var pokemons = [Pokemon]()
+    var filtered = [Pokemon]()
+    var inSearchMode = false
+    
     ///set up the audio player
     var musicPlayer: AVAudioPlayer!
     
@@ -31,6 +34,9 @@ class PokeListVC: UIViewController,UICollectionViewDelegate, UICollectionViewDat
         //set up the targets
         collectionView.delegate = self
         collectionView.dataSource = self
+        
+        searchBar.delegate = self
+        searchBar.returnKeyType = UIReturnKeyType.done
         
        initAudio()
         
@@ -54,7 +60,12 @@ class PokeListVC: UIViewController,UICollectionViewDelegate, UICollectionViewDat
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kCellIndentifier, for: indexPath) as? PokeCell {
-            let pokemon = DataService.sharedInstance.pokemons[indexPath.row]
+            var pokemon : Pokemon
+            if inSearchMode {
+                pokemon = filtered[indexPath.row]
+            } else {
+                pokemon = DataService.sharedInstance.pokemons[indexPath.row]
+            }
             cell.configure(pokemon: pokemon)
             return cell
         } else {
@@ -73,7 +84,12 @@ class PokeListVC: UIViewController,UICollectionViewDelegate, UICollectionViewDat
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if inSearchMode {
+            return filtered.count
+        } else {
+        
         return DataService.sharedInstance.pokemons.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -91,5 +107,29 @@ class PokeListVC: UIViewController,UICollectionViewDelegate, UICollectionViewDat
         }
     }
     
+    /**
+     Override on value changed on search bar
+    */
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchBar.text == nil || (searchBar.text?.isEmpty)! {
+            inSearchMode = false
+            collectionView.reloadData()
+            ///hide the keyboard
+            view.endEditing(true)
+        } else {
+            inSearchMode = true
+            
+            let lower = searchBar.text!.lowercased()
+            let pokemons = DataService.sharedInstance.pokemons
+            filtered = pokemons.filter( {$0.name.range(of: lower) != nil })
+            collectionView.reloadData()
+        }
+    }
+    
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        ///hide the keyboard
+         view.endEditing(true)
+    }
 }
 
