@@ -17,6 +17,9 @@
 		B808AFB71DDAC4B900029DFA /* PokeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B808AFB61DDAC4B900029DFA /* PokeCell.swift */; };
 		B808AFBA1DDAD59700029DFA /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B808AFB91DDAD59700029DFA /* DataService.swift */; };
 		B808AFBD1DDAD77900029DFA /* CSVParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B808AFBC1DDAD77900029DFA /* CSVParser.swift */; };
+		B808AFC01DDB96B000029DFA /* pokemon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B808AFBF1DDB96B000029DFA /* pokemon.ttf */; };
+		B808AFC41DDB986800029DFA /* music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B808AFC31DDB986800029DFA /* music.mp3 */; };
+		B808AFC61DDB986F00029DFA /* music.png in Resources */ = {isa = PBXBuildFile; fileRef = B808AFC51DDB986F00029DFA /* music.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		B808AFB61DDAC4B900029DFA /* PokeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokeCell.swift; sourceTree = "<group>"; };
 		B808AFB91DDAD59700029DFA /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		B808AFBC1DDAD77900029DFA /* CSVParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSVParser.swift; sourceTree = "<group>"; };
+		B808AFBF1DDB96B000029DFA /* pokemon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = pokemon.ttf; sourceTree = "<group>"; };
+		B808AFC31DDB986800029DFA /* music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = music.mp3; sourceTree = "<group>"; };
+		B808AFC51DDB986F00029DFA /* music.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = music.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,15 +70,15 @@
 		B808AF9D1DDA471A00029DFA /* pokedex */ = {
 			isa = PBXGroup;
 			children = (
+				B808AFB21DDABA2100029DFA /* Model */,
+				B808AFB51DDAC49500029DFA /* View */,
+				B808AFC11DDB96D200029DFA /* Controller */,
 				B808AFBB1DDAD76300029DFA /* Utils */,
 				B808AFB81DDAD58400029DFA /* Service */,
-				B808AFB51DDAC49500029DFA /* View */,
-				B808AFB21DDABA2100029DFA /* Model */,
 				B808AF9E1DDA471A00029DFA /* AppDelegate.swift */,
-				B808AFA01DDA471A00029DFA /* PokeListVC.swift */,
+				B808AFC21DDB96E200029DFA /* Resources */,
 				B808AFA21DDA471A00029DFA /* Main.storyboard */,
 				B808AFA51DDA471A00029DFA /* Assets.xcassets */,
-				B808AFB01DDA48D700029DFA /* pokemon.csv */,
 				B808AFA71DDA471A00029DFA /* LaunchScreen.storyboard */,
 				B808AFAA1DDA471A00029DFA /* Info.plist */,
 			);
@@ -109,6 +115,25 @@
 				B808AFBC1DDAD77900029DFA /* CSVParser.swift */,
 			);
 			name = Utils;
+			sourceTree = "<group>";
+		};
+		B808AFC11DDB96D200029DFA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B808AFA01DDA471A00029DFA /* PokeListVC.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		B808AFC21DDB96E200029DFA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B808AFC51DDB986F00029DFA /* music.png */,
+				B808AFC31DDB986800029DFA /* music.mp3 */,
+				B808AFB01DDA48D700029DFA /* pokemon.csv */,
+				B808AFBF1DDB96B000029DFA /* pokemon.ttf */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,7 +196,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B808AFC01DDB96B000029DFA /* pokemon.ttf in Resources */,
+				B808AFC61DDB986F00029DFA /* music.png in Resources */,
 				B808AFA91DDA471A00029DFA /* LaunchScreen.storyboard in Resources */,
+				B808AFC41DDB986800029DFA /* music.mp3 in Resources */,
 				B808AFA61DDA471A00029DFA /* Assets.xcassets in Resources */,
 				B808AFB11DDA48D700029DFA /* pokemon.csv in Resources */,
 				B808AFA41DDA471A00029DFA /* Main.storyboard in Resources */,
