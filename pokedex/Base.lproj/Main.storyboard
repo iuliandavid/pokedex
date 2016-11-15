@@ -106,6 +106,10 @@
                             <constraint firstAttribute="trailing" secondItem="wua-qZ-JXp" secondAttribute="trailing" constant="20" id="uQT-BI-a2H"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="wua-qZ-JXp" id="u2X-FA-dqX"/>
+                        <outlet property="search" destination="J7U-fP-OOx" id="ufK-u7-Lb6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
