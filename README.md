@@ -6,3 +6,4 @@ A swift 3 example of parsing json, csv based on PokeAPI github project
 
 * Parsing JSON
 * Parsing CSV
+* Using CollectionView
