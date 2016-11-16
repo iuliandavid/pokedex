@@ -73,9 +73,14 @@ class PokeListVC: UIViewController,UICollectionViewDelegate, UICollectionViewDat
         }
     }
     
+    /**
+     Issues a segue when the cell is selected
+     see prepareForSegue
+    */
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-    
+        let poke = (inSearchMode ? filtered[indexPath.row] : DataService.sharedInstance.pokemons[indexPath.row])
+        self.performSegue(withIdentifier: "PokemonDetailSegue", sender: poke)
     }
     
     
@@ -131,5 +136,16 @@ class PokeListVC: UIViewController,UICollectionViewDelegate, UICollectionViewDat
         ///hide the keyboard
          view.endEditing(true)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "PokemonDetailSegue" {
+            if let detailsVC =  segue.destination as? PokemonDetailVC {
+                if let poke = sender as? Pokemon {
+                    detailsVC.pokemon = poke
+                }
+            }
+        }
+    }
+    
 }
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B8065D491DDBA60A0053CDE9 /* PokemonDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8065D481DDBA60A0053CDE9 /* PokemonDetailVC.swift */; };
 		B808AF9F1DDA471A00029DFA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B808AF9E1DDA471A00029DFA /* AppDelegate.swift */; };
 		B808AFA11DDA471A00029DFA /* PokeListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B808AFA01DDA471A00029DFA /* PokeListVC.swift */; };
 		B808AFA41DDA471A00029DFA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B808AFA21DDA471A00029DFA /* Main.storyboard */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B8065D481DDBA60A0053CDE9 /* PokemonDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonDetailVC.swift; sourceTree = "<group>"; };
 		B808AF9B1DDA471A00029DFA /* pokedex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pokedex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B808AF9E1DDA471A00029DFA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B808AFA01DDA471A00029DFA /* PokeListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeListVC.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				B808AFA01DDA471A00029DFA /* PokeListVC.swift */,
+				B8065D481DDBA60A0053CDE9 /* PokemonDetailVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -217,6 +220,7 @@
 				B808AFA11DDA471A00029DFA /* PokeListVC.swift in Sources */,
 				B808AF9F1DDA471A00029DFA /* AppDelegate.swift in Sources */,
 				B808AFB41DDABA3400029DFA /* Pokemon.swift in Sources */,
+				B8065D491DDBA60A0053CDE9 /* PokemonDetailVC.swift in Sources */,
 				B808AFBA1DDAD59700029DFA /* DataService.swift in Sources */,
 				B808AFBD1DDAD77900029DFA /* CSVParser.swift in Sources */,
 			);
@@ -382,6 +386,7 @@
 				B808AFAF1DDA471A00029DFA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
