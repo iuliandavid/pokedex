@@ -443,7 +443,18 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="baseAttackLbl" destination="lK3-RG-B0U" id="gBV-qj-r3I"/>
+                        <outlet property="currentEvoImg" destination="6kk-Rg-gnE" id="pTp-Sy-yK1"/>
+                        <outlet property="defenseLbl" destination="hKT-nD-1ni" id="27S-Kp-Km4"/>
+                        <outlet property="descLbl" destination="tSN-V5-y02" id="yv7-RL-Ulp"/>
+                        <outlet property="evoLbl" destination="34Z-na-QRA" id="lOb-Ri-azN"/>
+                        <outlet property="height" destination="CRb-wx-qHK" id="qwR-sA-o9I"/>
+                        <outlet property="mainImg" destination="DUY-iQ-jBV" id="2yp-iM-puv"/>
+                        <outlet property="nextEvoImg" destination="Tdp-Sb-nMW" id="mJ9-hH-u38"/>
+                        <outlet property="pokemonIdLbl" destination="8YV-PM-5yz" id="hSW-Hc-n2q"/>
                         <outlet property="titleLbl" destination="Ejp-L9-13a" id="YhY-Vr-aHr"/>
+                        <outlet property="typeLbl" destination="his-fb-DUL" id="FiC-6X-18v"/>
+                        <outlet property="weightLbl" destination="d7y-TW-9PB" id="rVL-gU-in8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QYi-C5-sZm" userLabel="First Responder" sceneMemberID="firstResponder"/>

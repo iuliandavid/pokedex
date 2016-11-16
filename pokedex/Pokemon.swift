@@ -16,6 +16,11 @@ class Pokemon{
     private var _pokedexId: Int!
     private var _height:Int!
     private var _weight:Int!
+    private var _description: String!
+    private var _type: String!
+    private var _defense:Int!
+    private var _attack: Int!
+    private var _nextEvolutionTxt: String!
     
     var name: String{
         get{
@@ -37,6 +42,36 @@ class Pokemon{
     var weight:Int{
         get{
             return _weight
+        }
+    }
+    
+    var description:String{
+        get{
+            return _description
+        }
+    }
+    
+    var attack:Int{
+        get{
+            return _attack
+        }
+    }
+    
+    var defense:Int{
+        get{
+            return _defense
+        }
+    }
+    
+    var type:String{
+        get{
+            return _type
+        }
+    }
+    
+    var nextEvolutionTxt:String{
+        get{
+            return _nextEvolutionTxt
         }
     }
     
