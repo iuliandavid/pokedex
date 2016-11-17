@@ -111,6 +111,7 @@ class Pokemon{
     
     /**
      Asynchronuos download details
+     - Parameter completed: The closure that will be triggerred when the download finishes
     */
     func downloadPokemonDetails(completed: @escaping DownloadComplete)  {
         
@@ -130,6 +131,7 @@ class Pokemon{
                 }
                 //cast as dictionary and put a condition to item count
                 if let types = dict["types"] as? [Dictionary<String, String>], types.count > 0 {
+                    
 //                    self.simpleSolution(dict: types, filter: "name")
                     
                     self._type = self.functionalSolution(dict: types, filter: "name")
@@ -137,21 +139,9 @@ class Pokemon{
                 }
                 if let descLink = dict["descriptions"] as? [Dictionary<String, String>], descLink.count>0 {
                     if let url = descLink[0]["resource_uri"]  {
-//                        let desc = self.getDescription(link: url)
-                        let url = "\(URL_BASE)\(url)"
-                        var result: String = ""
-                        Alamofire.request(url).responseJSON(completionHandler: {
-                            (response) in
-                            if let dict = response.result.value as? Dictionary<String, AnyObject> {
-                                if let res = dict["description"] as? String {
-                                    result = res
-                                }
-                            }
-                            self._description = result
-                            print(result)
+                        self.getDescription(link: url, completed: {
                             completed()
                         })
-                        
                     }
                 } else {
                     self._description = ""
@@ -218,20 +208,24 @@ class Pokemon{
 
     }
     
-    func getDescription(link: String) -> String {
+    /**
+     Async download with closure as a parameter
+     - Parameter link: the url to execute
+     - Parameter completed: The closure to be executed when completing
+    */
+    func getDescription(link: String, completed: @escaping DownloadComplete) {
         let url = "\(URL_BASE)\(link)"
         var result: String = ""
         Alamofire.request(url).responseJSON(completionHandler: {
             (response) in
             if let dict = response.result.value as? Dictionary<String, AnyObject> {
                 if let res = dict["description"] as? String {
-                    result = res
+                    result = res.replacingOccurrences(of: "POKMON", with: "Pokemon")
                 }
             }
             self._description = result
             print(result)
+            completed()
         })
-        
-        return result
     }
 }

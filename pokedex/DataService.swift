@@ -43,4 +43,6 @@ class DataService {
     var pokemons : [Pokemon] {
         return _pokemons
     }
+    
+    
 }

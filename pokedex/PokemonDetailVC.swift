@@ -37,8 +37,10 @@ class PokemonDetailVC: UIViewController {
         pokemonIdLbl.text = "\(pokemon.pokedexId)"
         titleLbl.text = pokemon.name
         
+        
         pokemon.downloadPokemonDetails {
             //Whatever we write here will only be called after the network call is complete!
+            //Acts as an observer to closure changes
             self.updateUI()
         }
     }
