@@ -28,9 +28,8 @@ class DataService {
                 let csv = try CSVParser.init(contentsOfURL: path)
                 let rows = csv.rows
                 for row in rows {
-                    if let pokeId = Int(row["id"]!),let weight = Int(row["weight"]!),
-                        let height = Int(row["height"]!), let name = row["identifier"] {
-                        let pokemon = Pokemon(name: name, id: pokeId, weight: weight, height: height)
+                    if let pokeId = Int(row["id"]!), let name = row["identifier"] {
+                        let pokemon = Pokemon(name: name, id: pokeId)
                         _pokemons.append(pokemon)
                     }
                 }
