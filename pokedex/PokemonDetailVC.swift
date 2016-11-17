@@ -25,6 +25,7 @@ class PokemonDetailVC: UIViewController {
     @IBOutlet weak var currentEvoImg: UIImageView!
     @IBOutlet weak var nextEvoImg: UIImageView!
     @IBOutlet weak var evoLbl: UILabel!
+    @IBOutlet weak var nextEvoLbl: UILabel!
     
     
     override func viewDidLoad() {
@@ -36,11 +37,12 @@ class PokemonDetailVC: UIViewController {
         pokemonIdLbl.text = "\(pokemon.pokedexId)"
         titleLbl.text = pokemon.name
         
-        pokemon.downloadPokemonDetails { 
+        pokemon.downloadPokemonDetails {
             //Whatever we write here will only be called after the network call is complete!
             self.updateUI()
         }
     }
+    
     @IBAction func backButtonPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -51,6 +53,15 @@ class PokemonDetailVC: UIViewController {
         self.defenseLbl.text = "\(self.pokemon.defense)"
         self.baseAttackLbl.text = "\(self.pokemon.attack)"
         self.typeLbl.text = self.pokemon.type
+        self.descLbl.text = pokemon.description
+        if pokemon.nextEvolutionId == "" {
+            nextEvoLbl.text = "No Evolutions"
+            nextEvoImg.isHidden = true
+        } else {
+            nextEvoLbl.text = "Next Evolution: \(pokemon.nextEvolutionName) - Level \(pokemon.nextEvolutionLvl)"
+            nextEvoImg.image = UIImage(named: pokemon.nextEvolutionId)
+            nextEvoImg.isHidden = false
+        }
     }
     
 }
